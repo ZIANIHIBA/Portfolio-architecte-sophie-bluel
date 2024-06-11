@@ -22,14 +22,26 @@ form.addEventListener("submit", function (event) {
         headers: { "content-type": "application/json" },
         body: chargeUtile
     })
-        .then(res => res.json())
-        .then(function (response) {
-            let token = response.token
-            localStorage.setItem = ("token", token)
-            window.location = "index.html"
-        }).catch(error => {
-            let messageError = "mot de passe erooné";
-            alert(error.response.messageError)
+
+        .then (response=> {
+            if (!response.ok) {
+                throw new error ("autentification echoué");
+               
+             }
+           return response.json()
+          
+            
         })
+        .then (data=> {
+            let token = data.token
+            localStorage.setItem = ("token", token)
+            window.location="index.html";
+           // document.querySelector('.login').innerHTML="logout";
+        })
+.catch(error => {
+   
+    alert("mot de passe erooné")
+    document.querySelector(".errorlogin").textContent="mot de passe ou email erroné";
 })
+ })
 

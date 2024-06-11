@@ -8,6 +8,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<script src="https://kit.fontawesome.com/33a4fc6b58.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+			<li class="login">login</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -35,9 +36,10 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<h2>Mes Projets <a href="#modal" class="open"><i class="fa-regular fa-pen-to-square"></i>modifier</a></h2>
+		
 		<div class="menucategory">
-			<button id="0"></button>
+			<button id="0">Tous</button>
 		</div>
 		<div class="gallery">
 			
@@ -66,6 +68,43 @@
 		</ul>
 	</nav>
 </footer>
+
+<aside id="modal" class="firstmodal" aria-hidden="true" 
+		 role="dialogue" >
+			<div class="modal1">
+				<span class="close">X</span>
+			<p>Galerie photo</p>
+             <div class="Modalgalerie"></div>
+			   <hr>
+				<button class="addphoto">Ajouter une photo</button>
+			</div>
+			
+		</aside>
+		<!----formulaire d'ajout-->
+		<aside id="modal"  class="secondModal"  aria-hidden="true"  
+		 role="dialogue" >
+			<div class="modal1">
+				<span class="close">X</span>
+				<i class="fa-solid fa-arrow-left"></i>
+			<p>Ajout photo</p>
+             <div class="addgalerie"></div>
+			 <form class="modalform">
+				<label for="title">Titre</label>
+				<input type="text" id="title" name="title">
+		
+				
+				
+				<label for="categoryInput">catégorie</label>
+				<select id="categoryInput" name="category" required></select>
+			 </form>
+			   <hr>
+				<button class="modal2btn">valider</button>
+			</div>
+			
+		</aside>
+
 <script src="index.js"></script>
+<script src="modal.js"></script>
+
 </body>
 </html>
