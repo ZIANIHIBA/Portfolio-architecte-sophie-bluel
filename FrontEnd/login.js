@@ -30,13 +30,16 @@ form.addEventListener("submit", function (event) {
              }
            return response.json()
           
-            
+          
         })
         .then (data=> {
             let token = data.token
-            localStorage.setItem = ("token", token)
-            window.location="index.html";
-           // document.querySelector('.login').innerHTML="logout";
+            localStorage.setItem  ("token", token)
+            console.log(token)
+          
+            //document.querySelector('.login a').textContent="logout";
+          window.location="index.html";
+           
         })
 .catch(error => {
    
@@ -44,4 +47,17 @@ form.addEventListener("submit", function (event) {
     document.querySelector(".errorlogin").textContent="mot de passe ou email erroné";
 })
  })
-
+///chekuserconnection
+ /*async function checkuserconnexion (){
+    const token=localStorage.getItem('token',token);
+    console.log(token)
+const userconnected= token !==null && token !==undefined && token !=='';
+if(userconnected){
+    const login=document.querySelector('.login');
+    login.textContent='logout';
+    //disparaitre les bouttons
+    const btnfilterCategorie=document.querySelector('.menucategory');
+    btnfilterCategorie.Style.dislay=none
+}
+}
+checkuserconnexion()*/

@@ -1,6 +1,13 @@
-
+//afin d'appeler les fonctions
+/*window.addEventListener("DOMContentLoaded", function(event) {
+   displayWorks()
+  });*/
+ 
  galleryDiv = document.querySelector(".gallery");
  menucategoryDiv = document.querySelector(".menucategory");
+ /*const btnTous=document.createElement('button');
+ menucategoryDiv.appendChild(btnTous);
+ btnTous.id=0*/
 
 async function getworks() {
     const response = await fetch("http://localhost:5678/api/works");
@@ -8,21 +15,21 @@ async function getworks() {
 }
 getworks()
 
-        async function displayWorks(){ 
+       async function displayWorks(){ 
         const works = await getworks();
         works.forEach((work) => {
         createWorks(work);  }) 
         };
-        displayWorks()
-
-        /***cretion de galerie */
+        displayWorks();
+     
+        /***creation de galerie */
         async function createWorks(work){ 
         const figure = document.createElement("figure");
         const img = document.createElement("img");
         img.src = work.imageUrl;
         const figcaption = document.createElement("figcaption");
         figcaption.textContent = work.title;
-        //mettere les elemnts dans le DOm
+        //mettre les elements dans le DOm
         galleryDiv.appendChild(figure);
         figure.appendChild(img);
         figure.appendChild(figcaption);
@@ -62,7 +69,7 @@ async function filterCategorys(){
     btn.addEventListener("click",(e)=>{
        const btnId= e.target.id;
        galleryDiv.innerHTML="";
-   if(btnId!==0){
+   if(btnId!=0){
     
     const filterworks=works.filter((work)=>{
     return work.categoryId==btnId;
@@ -73,13 +80,14 @@ async function filterCategorys(){
 })
 }
 else{
+    console.log('tous')
     displayWorks()
+    
+    //document.getElementById('0').addEventListener("click",displayWorks())
 }
     });
-  })
+  });
 }
 filterCategorys()
 
 
-
-/******creatio de page delogin */

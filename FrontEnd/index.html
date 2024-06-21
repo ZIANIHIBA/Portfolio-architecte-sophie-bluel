@@ -18,7 +18,7 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li class="login">login</li>
+			<li ><a href="login.html" class="login">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -36,7 +36,7 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets <a href="#modal" class="open"><i class="fa-regular fa-pen-to-square"></i>modifier</a></h2>
+		<h2 class="mesProjets">Mes Projets <a href="#modal" class="btnopenmodal"><i class="fa-regular fa-pen-to-square"></i>modifier</a></h2>
 		
 		<div class="menucategory">
 			<button id="0">Tous</button>
@@ -87,8 +87,16 @@
 				<span class="close">X</span>
 				<i class="fa-solid fa-arrow-left"></i>
 			<p>Ajout photo</p>
-             <div class="addgalerie"></div>
-			 <form class="modalform">
+			<form class="modalform">
+			<span class="contenairNew-img">
+			<span class="modal__two-icon">
+				<i class="fa-regular fa-image"></i></span>
+				<label for="addPhoto" class="modalform-textAddPhoto">+ Ajouter photo</label>
+					<input id="addPhoto" class="modalform-addphoto" type="file" name ="file" >
+					<img src="#" alt= "aperçu de l'image">
+					<span class="modalform-desc">jpg, png : 4mo max</span>
+				</span>
+			
 				<label for="title">Titre</label>
 				<input type="text" id="title" name="title">
 		
@@ -96,15 +104,17 @@
 				
 				<label for="categoryInput">catégorie</label>
 				<select id="categoryInput" name="category" required></select>
-			 </form>
+			    <span id="errorForm"></span>
 			   <hr>
-				<button class="modal2btn">valider</button>
+				<button class="modal2btn"type="submit" >valider</button>
+			</form>
 			</div>
 			
 		</aside>
 
-<script src="index.js"></script>
-<script src="modal.js"></script>
+<script defer src="index.js" ></script>
+<script   defer src="modal.js"  ></script>
+<script src="userconnection.js"></script>
 
 </body>
 </html>

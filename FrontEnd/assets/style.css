@@ -202,6 +202,10 @@ footer nav ul {
 
 }
 /****login****/
+.login {
+	text-decoration: none;
+
+}
 .field{
 	width: 50%;
 	margin: auto;
@@ -242,6 +246,9 @@ justify-content: center; }
 
 
 /******modal*******/
+.btnopenmodal{
+	display: none;
+}
 #portfolio a{
 	text-decoration: none;
 	color: black;
@@ -266,12 +273,13 @@ justify-content: center; }
 }
  .modal1{
 	width: 450px;
-	height: 430px;
+	height: 470px;
 	background-color:#fff;
    position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 10px;
 
 }
 .close{
@@ -309,6 +317,38 @@ background-color:gainsboro;
 .Modalgalerie{
 	height: 80%;
 }
+/******modalgalerie**/
+.Modalgalerie{
+	display:flex;
+	flex-wrap: wrap;
+	gap:10px;
+    width: 80%;
+	padding-left: 20px;
+	margin: 15px auto;
+}
+.Modalgalerie img{
+	max-width:60px;
+	
+
+}
+.Modalgalerie figure{
+	position:relative;
+}
+.bin{
+	position: absolute;
+	
+	right:4px;
+	top:2px;
+   background-color:black;
+color: white;
+padding: 3px;
+font-size: 9px;
+}
+
+
+	
+
+
 /******deuxieme modale***/
 .secondModal{
 	display: none;
@@ -356,4 +396,64 @@ background-color:gainsboro;
 .modalform label{
 	padding-bottom: 10px;
 	color: grey;
+}
+.contenairNew-img{
+	display :flex;
+	flex-direction: column;
+	align-items: center;
+	background: #E8F1F7;
+	gap: 5px;
+	height: 140px;
+	padding-bottom: 15px;
+	width: 320px;
+	margin:8px auto;
+
+}
+.contenairNew-img i{
+	color: #B9C5CC;
+	font-size: 48px;
+	margin-bottom: 5px;
+	margin-top: 18px
+}
+.modalform input[type="file"] {
+	display: none; }
+.modalform-textAddPhoto{
+	color: #306685;
+	
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 8px;
+	cursor: pointer;
+	background: #CBD6DC;
+	border: none;
+	border-radius: 50px;
+	max-height: 36px;
+	max-width: 173px;
+	padding: 10px 23px;
+	text-align: center;
+}
+.modalform-desc{
+	color: #444444;
+
+	font-weight: 400;
+	font-size: 10px;
+	margin-bottom: 19px;
+}
+.modalform input[type="text"]{
+width: 320px;
+}
+.modalform select{
+	width: 320px;
+}
+#categoryInput{
+	width: 320px;
+}
+.active{
+	background: #1D6154;
+}
+.contenairNew-img img{
+	display: none;
+}
+.modalform button{
+	margin-top: 15px;
 }
