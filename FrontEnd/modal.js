@@ -1,5 +1,5 @@
 //import function displayworks from index
-//import{displayworks}from './index.js';
+import{displayWorks}from './index.js';
 
 
 /***displaypremieremodal */
@@ -74,13 +74,13 @@ async function displayworksmodal() {
                             const response = await fetch(`http://localhost:5678/api/works/${id}`, {
                                 method: 'DELETE',
                                 headers: {
-                                    'accept': ' *',
+                                    'accept': ' */*',
                                     'Authorization': `Bearer ${token}`,
                                 }
                             });
 
                     if (response.ok) {
-                        displayworks()
+                        displayWorks()
                         displayworksmodal();
                     }
                     else {
@@ -198,8 +198,8 @@ async function validationformulaire() {
    await fetch('http://localhost:5678/api/works', {
         method: 'POST',
         headers: {
-            "content type":"multipart/form-data",
-            'autorization': ` Bearer${token}`,
+            //"Content-Type":"multipart/form-data",
+            'Authorization': ` Bearer ${token}`,
         },
         body: formData,
     })
@@ -215,7 +215,7 @@ async function validationformulaire() {
         console.log(data)
             gallery.innerHTML = ""
             modalgalerie.innerHTML = ""
-            displayworks();
+            displayWorks();
             displayworksmodal();
         })
         .catch((error) => {

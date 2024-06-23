@@ -191,20 +191,31 @@ footer nav ul {
 #portfolio .menucategory{
 	display: flex;
 	justify-content: center;
-	gap:40px;
+	gap:15px;
 	padding-bottom: 20px;
 }
 .menucategory button{
 	border-radius: 50px;
 	color: #1D6154;
 	font-size: 18px;
-	padding: 12px;
-
+	padding: 8px 15px;
+ border-color: #1D6154;
+ background-color: white;
+}
+.menucategory .clickBtn{
+	border-radius: 50px;
+	background-color: #1D6154;
+	color: white;
+	font-size: 18px;
+	padding: 8px 15px;
 }
 /****login****/
-.login {
+a {
 	text-decoration: none;
-
+color:black;
+}
+a :visited{
+	color: black;
 }
 .field{
 	width: 50%;

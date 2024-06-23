@@ -3,8 +3,8 @@
    displayWorks()
   });*/
  
- galleryDiv = document.querySelector(".gallery");
- menucategoryDiv = document.querySelector(".menucategory");
+ const galleryDiv = document.querySelector(".gallery");
+const  menucategoryDiv = document.querySelector(".menucategory");
  /*const btnTous=document.createElement('button');
  menucategoryDiv.appendChild(btnTous);
  btnTous.id=0*/
@@ -15,8 +15,9 @@ async function getworks() {
 }
 getworks()
 
-       async function displayWorks(){ 
+       export async function displayWorks(){ 
         const works = await getworks();
+       
         works.forEach((work) => {
         createWorks(work);  }) 
         };
@@ -55,12 +56,24 @@ button.id=0*/
         menucategoryDiv.appendChild(button);
         //console.log(  menucategoryDiv)
         button.id=category.id 
-     
+      
+        const allBtn=document.querySelectorAll(".menucategory button")
+    console.log(allBtn)
+    allBtn.forEach (btn =>{ 
+        btn.addEventListener("click", ()=>{
+            document.querySelector(".clickBtn")?.classList.remove("clickBtn")
+            btn.classList.add("clickBtn")
+           // btn.classList.remove("clickBtn")
+        })
+        btn.classList.remove("clickBtn");
+      }
+    )
     })
-   
-   
+   //ajouter une classe pour mettre en forme les bouttons
+    
 }
 getCategory()
+
 //ajout filter
 async function filterCategorys(){
     const  works= await getworks();

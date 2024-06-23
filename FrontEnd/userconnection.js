@@ -6,13 +6,12 @@ const userconnected= token != null && token != undefined && token !='';
 if(userconnected){
     const login=document.querySelector('.login');
     //console.log(login)
-    login.textContent='logout';
+    login.innerHTML='';
+    const logout=document.querySelector('.logout')
+    logout.innerHTML='logout';
     //disparaitre les bouttons
     const btnfilterCategorie=document.querySelector('.menucategory ');
     btnfilterCategorie.style.display="none"
-   
-    
-   
     //faire apparaitre icone de la modale
     const btnopenModel=document.querySelector('.btnopenmodal');
     btnopenModel.style.display="unset";
@@ -21,11 +20,11 @@ if(userconnected){
  }
 checkuserconnexion()
  function userlogout (){
-    const login=document.querySelector('.login');
-    login.addEventListener("click",()=>{
+    const logout=document.querySelector('.logout');
+    logout.addEventListener("click",()=>{
         localStorage.clear();
-        window.location="index.html";
-        login.innerHTML="login";
+        logout.innerHTML="";
+        
         //apparaitre les boutons  filtres
         btnfilterCategorie.style.display="unset";
         //cacher l'icone de la modale

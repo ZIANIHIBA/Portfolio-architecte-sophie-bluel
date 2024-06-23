@@ -43,8 +43,9 @@ form.addEventListener("submit", function (event) {
         })
 .catch(error => {
    
-    alert("mot de passe erooné")
+    //alert("mot de passe erooné")
     document.querySelector(".errorlogin").textContent="mot de passe ou email erroné";
+    document.querySelector(".errorlogin").style.display="flex"
 })
  })
 ///chekuserconnection
