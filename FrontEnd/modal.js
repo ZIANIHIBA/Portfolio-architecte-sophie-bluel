@@ -91,9 +91,7 @@ async function displayworksmodal() {
                     console.log("une error est survenu,error");
 
                 }
-            } else {
-                console.log(q);
-            }
+            } 
 
         })
     })

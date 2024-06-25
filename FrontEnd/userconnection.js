@@ -5,7 +5,7 @@ async function checkuserconnexion (){
 const userconnected= token != null && token != undefined && token !='';
 if(userconnected){
     const login=document.querySelector('.login');
-    //console.log(login)
+    
     login.innerHTML='';
     const logout=document.querySelector('.logout')
     logout.innerHTML='logout';

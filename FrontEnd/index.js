@@ -1,21 +1,16 @@
-//afin d'appeler les fonctions
-/*window.addEventListener("DOMContentLoaded", function(event) {
-   displayWorks()
-  });*/
+
  
- const galleryDiv = document.querySelector(".gallery");
+const galleryDiv = document.querySelector(".gallery");
 const  menucategoryDiv = document.querySelector(".menucategory");
- /*const btnTous=document.createElement('button');
- menucategoryDiv.appendChild(btnTous);
- btnTous.id=0*/
+ 
 
 async function getworks() {
     const response = await fetch("http://localhost:5678/api/works");
     return await response.json() 
 }
-getworks()
-
-       export async function displayWorks(){ 
+getworks();
+       /***la fonction qui affiche les gallerie */
+      export async function displayWorks(){ 
         const works = await getworks();
        
         works.forEach((work) => {
@@ -23,7 +18,7 @@ getworks()
         };
         displayWorks();
      
-        /***creation de galerie */
+        /***creation des bouttons de la  galerie */
         async function createWorks(work){ 
         const figure = document.createElement("figure");
         const img = document.createElement("img");
@@ -36,15 +31,6 @@ getworks()
         figure.appendChild(figcaption);
     
 };
-
-
-
-/**create buttonTous */
-/*const button = document.createElement("button");
-button.textContent="Tous"
-button.id=0*/
-
-//categoryDiv .appendChild(button)
 
 //cibler les categories
    async function getCategory() {
