@@ -70,8 +70,8 @@
 	</nav>
 </footer>
 
-<aside id="modal" class="firstmodal" aria-hidden="true" 
-		 role="dialogue" >
+<aside id="firstmodal" class="modal" aria-hidden="true" 
+		 >
 			<div class="modal1">
 				<span class="close">X</span>
 			<p>Galerie photo</p>
@@ -81,9 +81,9 @@
 			</div>
 			
 		</aside>
-		<!----formulaire d'ajout-->
-		<aside id="modal"  class="secondModal"  aria-hidden="true"  
-		 role="dialogue" >
+		<!----formulaire-->
+		<aside id="secondModal"  class="modal"  aria-hidden="true"  
+		 >
 			<div class="modal1">
 				<span class="close">X</span>
 				<i class="fa-solid fa-arrow-left"></i>
@@ -93,28 +93,29 @@
 			<span class="modal__two-icon">
 				<i class="fa-regular fa-image"></i></span>
 				<label for="addPhoto" class="modalform-textAddPhoto">+ Ajouter photo</label>
-					<input id="addPhoto" class="modalform-addphoto" type="file" name ="file" >
+					<input id="addPhoto" class="modalform-addphoto" type="file" name ="file" required >
 					<img src="#" alt= "aperçu de l'image">
 					<span class="modalform-desc">jpg, png : 4mo max</span>
 				</span>
 			
 				<label for="title">Titre</label>
-				<input type="text" id="title" name="title">
+				<input type="text" id="title" name="title" required>
 		
 				
 				
 				<label for="categoryInput">catégorie</label>
-				<select id="categoryInput" name="category" required></select>
+				<select id="categoryInput" name="category" ></select>
+				
 			    <span id="errorForm"></span>
 			   <hr>
-				<button class="modal2btn"type="submit" >valider</button>
+				<button class="modal2btn" type="submit" >valider</button>
 			</form>
 			</div>
 			
 		</aside>
 
-<script defer src="index.js" type="module"></script>
-<script   defer src="modal.js"  type="module"></script>
+<script  src="index.js" type="module"></script>
+<script   src="modal.js"  type="module"></script>
 <script src="userconnection.js"></script>
 
 </body>

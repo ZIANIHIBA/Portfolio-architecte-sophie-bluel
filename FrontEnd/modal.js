@@ -4,7 +4,7 @@ import{displayWorks}from './index.js';
 
 /***displaypremieremodal */
 const openModal = document.querySelector(".btnopenmodal ")
-const modal1 = document.querySelector('.firstmodal')
+const modal1 = document.getElementById('firstmodal')
 const close = document.querySelector(".close")
 
 openModal.addEventListener("click", function () {
@@ -17,8 +17,8 @@ close.addEventListener("click", function () {
 });
 /****display 2 eme modal */
 const btnaddphoto = document.querySelector(".addphoto");
-const modal2 = document.querySelector(".secondModal");
-const span = document.querySelector(".secondModal .modal1 span");
+const modal2 = document.getElementById("secondModal");
+const span = document.querySelector("#secondModal .modal1 span");
 const flechegauche = document.querySelector(".modal1 i")
 
 
@@ -173,8 +173,6 @@ function fillform() {
     }
 }
 
-
-
 //fonction pour valider le formulaire
 async function validationformulaire() {
     const imgfileUrl = document.getElementById("addPhoto").files[0];
@@ -183,8 +181,8 @@ async function validationformulaire() {
    //const emplacement de la nouvelle photo
     const gallery = document.querySelector(".gallery");
     const modalgalerie = document.querySelector(".Modalgalerie")
-    const modalcontainer = document.querySelector(".firstmodal")
-//console.log(imgfileUrl)
+    //const modalcontainer = document.getElementById("firstmodal")
+    //console.log(imgfileUrl)
     //les information pour les envoyer
     let formData = new FormData();
     formData.append("image", imgfileUrl);

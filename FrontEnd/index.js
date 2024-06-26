@@ -13,12 +13,12 @@ getworks();
       export async function displayWorks(){ 
         const works = await getworks();
        
-        works.forEach((work) => {
+        works.forEach((work) => {     
         createWorks(work);  }) 
         };
         displayWorks();
      
-        /***creation des bouttons de la  galerie */
+        /***creation des balises qui vont contenir les travaux  */
         async function createWorks(work){ 
         const figure = document.createElement("figure");
         const img = document.createElement("img");
@@ -40,12 +40,11 @@ getworks();
         const button = document.createElement("button");
         button.textContent = category.name;
         menucategoryDiv.appendChild(button);
-        //console.log(  menucategoryDiv)
         button.id=category.id 
-      
+      //pour changer le style des boutons au click
         const allBtn=document.querySelectorAll(".menucategory button")
-    console.log(allBtn)
-    allBtn.forEach (btn =>{ 
+        console.log(allBtn)
+        allBtn.forEach (btn =>{ 
         btn.addEventListener("click", ()=>{
             document.querySelector(".clickBtn")?.classList.remove("clickBtn")
             btn.classList.add("clickBtn")
@@ -55,20 +54,19 @@ getworks();
       }
     )
     })
-   //ajouter une classe pour mettre en forme les bouttons
     
 }
 getCategory()
 
 //ajout filter
-async function filterCategorys(){
+   async function filterCategorys(){
     const  works= await getworks();
-   const buttons=document.querySelectorAll(".menucategory button")
-  buttons.forEach(btn=>{
+    const buttons=document.querySelectorAll(".menucategory button")
+    buttons.forEach(btn=>{
     btn.addEventListener("click",(e)=>{
        const btnId= e.target.id;
        galleryDiv.innerHTML="";
-   if(btnId!=0){
+     if(btnId!=0){
     
     const filterworks=works.filter((work)=>{
     return work.categoryId==btnId;
@@ -82,7 +80,7 @@ else{
     console.log('tous')
     displayWorks()
     
-    //document.getElementById('0').addEventListener("click",displayWorks())
+
 }
     });
   });

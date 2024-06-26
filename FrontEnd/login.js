@@ -36,9 +36,7 @@ form.addEventListener("submit", function (event) {
             let token = data.token
             localStorage.setItem  ("token", token)
             console.log(token)
-          
-            //document.querySelector('.login a').textContent="logout";
-          window.location="index.html";
+             window.location="index.html";
            
         })
 .catch(error => {
@@ -48,17 +46,3 @@ form.addEventListener("submit", function (event) {
     document.querySelector(".errorlogin").style.display="flex"
 })
  })
-///chekuserconnection
- /*async function checkuserconnexion (){
-    const token=localStorage.getItem('token',token);
-    console.log(token)
-const userconnected= token !==null && token !==undefined && token !=='';
-if(userconnected){
-    const login=document.querySelector('.login');
-    login.textContent='logout';
-    //disparaitre les bouttons
-    const btnfilterCategorie=document.querySelector('.menucategory');
-    btnfilterCategorie.Style.dislay=none
-}
-}
-checkuserconnexion()*/
