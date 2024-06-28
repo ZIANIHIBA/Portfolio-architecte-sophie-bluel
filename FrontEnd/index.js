@@ -32,7 +32,7 @@ getworks();
     
 };
 
-//cibler les categories
+//creer les boutons pour les categories
    async function getCategory() {
     const response = await fetch("http://localhost:5678/api/categories");
     const categorys = await response.json(); 
@@ -48,7 +48,7 @@ getworks();
         btn.addEventListener("click", ()=>{
             document.querySelector(".clickBtn")?.classList.remove("clickBtn")
             btn.classList.add("clickBtn")
-           // btn.classList.remove("clickBtn")
+           
         })
         btn.classList.remove("clickBtn");
       }

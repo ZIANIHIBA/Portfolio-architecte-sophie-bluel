@@ -1,8 +1,6 @@
 
 
 //event listener
-
-
 const form = document.getElementById("tow");
 
 form.addEventListener("submit", function (event) {

@@ -6,7 +6,7 @@ import{displayWorks}from './index.js';
 const openModal = document.querySelector(".btnopenmodal ")
 const modal1 = document.getElementById('firstmodal')
 const close = document.querySelector(".close")
-
+const modalform = document.querySelector(".modalform")
 openModal.addEventListener("click", function () {
 
     modal1.style.display = 'flex';
@@ -24,24 +24,27 @@ const flechegauche = document.querySelector(".modal1 i")
 
 
 btnaddphoto.addEventListener("click", () => {
+ 
     modal1.style.display = 'none';
     modal2.style.display = 'flex';
+    resetform();
 });
 span.addEventListener("click", () => {
     modal2.style.display = 'none'
+    resetform();
 })
 flechegauche.addEventListener("click", () => {
     modal2.style.display = 'none';
     modal1.style.display = 'flex';
 })
 
-/***mettre les photos de la premiere modale */
+/***ramener les travaux */
 async function getworks() {
     const response = await fetch("http://localhost:5678/api/works");
     return await response.json();
 }
 
-//ajout l'evenment au click sur les bins
+//faire apparaitre les photos dans la modale
 async function displayworksmodal() {
     const modalgalerie = document.querySelector(".Modalgalerie");
     modalgalerie.innerHTML = ''
@@ -82,13 +85,14 @@ async function displayworksmodal() {
                     if (response.ok) {
                         displayWorks()
                         displayworksmodal();
+
                     }
                     else {
                         alert("echec de la supression")
                     }
 
                 } catch (error) {
-                    console.log("une error est survenu,error");
+                    console.log("une error est survenue,error");
 
                 }
             } 
@@ -104,7 +108,7 @@ displayworksmodal()
 
 //envoie de nouveau projet au backend
 //const du formfill
-const modalform = document.querySelector(".modalform")
+//const modalform = document.querySelector(".modalform")
 const Imgfile = document.querySelector(".contenairNew-img img");
 
 const inputfile = document.getElementById("addPhoto")
@@ -173,7 +177,7 @@ function fillform() {
     }
 }
 
-//fonction pour valider le formulaire
+//fonction pour poster le formulaire
 async function validationformulaire() {
     const imgfileUrl = document.getElementById("addPhoto").files[0];
     const titleImgvalue = document.getElementById("title").value;
@@ -181,20 +185,19 @@ async function validationformulaire() {
    //const emplacement de la nouvelle photo
     const gallery = document.querySelector(".gallery");
     const modalgalerie = document.querySelector(".Modalgalerie")
-    //const modalcontainer = document.getElementById("firstmodal")
-    //console.log(imgfileUrl)
+    
     //les information pour les envoyer
     let formData = new FormData();
     formData.append("image", imgfileUrl);
     formData.append("title", titleImgvalue);
     formData.append("category", categoryImg);
-   //const data=new URLSearchParams(formData);
+     //const data=new URLSearchParams(formData);
     const token = localStorage.getItem("token")
-//console.log(token)
+     //console.log(token)
    await fetch('http://localhost:5678/api/works', {
         method: 'POST',
         headers: {
-            //"Content-Type":"multipart/form-data",
+        
             'Authorization': ` Bearer ${token}`,
         },
         body: formData,
@@ -213,10 +216,12 @@ async function validationformulaire() {
             modalgalerie.innerHTML = ""
             displayWorks();
             displayworksmodal();
+           
         })
         .catch((error) => {
           console.log(error)
         })
+        
 }
 
 
@@ -227,3 +232,20 @@ modalform.addEventListener("submit", (event) => {
     event.preventDefault();
    validationformulaire();
 })
+
+async function resetform (){
+   
+    const imgfileUrl = document.getElementById("addPhoto");
+    const titleImgvalue = document.getElementById("title");
+    const categoryImg = document.getElementById("categoryInput");
+    const Imgfile = document.querySelector(".contenairNew-img img");
+    
+    titleImgvalue.value=""
+    categoryImg.value=""
+    imgfileUrl.value=''
+    //Imgfile.innerHTML=''
+     Imgfile.style.display="none"
+    labelfile.style.display = "block"
+    iconfile.style.display = "block"
+    textfile.style.display = "block"
+}
